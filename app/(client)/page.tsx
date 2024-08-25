@@ -3,7 +3,7 @@ import Header from "../components/Header";
 import { Post } from "../utils/interface";
 import PostComponent from "../components/PostComponent";
 
-export async function getPosts() {
+async function getPosts() {
 	const query = `*[_type == "post"] {
   title,
   slug,
