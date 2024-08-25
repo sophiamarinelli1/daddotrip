@@ -1,9 +1,12 @@
+// app/(client)/page.tsx
+
+import React from "react";
 import { client } from "@/sanity/lib/client";
 import Header from "../components/Header";
-import { Post } from "../utils/interface";
 import PostComponent from "../components/PostComponent";
+import { Post } from "../utils/interface";
 
-export default async function Home() {
+async function fetchPosts(): Promise<Post[]> {
 	const query = `*[_type == "post"] {
     title,
     slug,
@@ -16,18 +19,24 @@ export default async function Home() {
       name
     }
   }`;
+	const posts = await client.fetch(query);
+	return posts;
+}
 
-	const posts: Post[] = await client.fetch(query);
+export const revalidate = 60; // Optional: For Incremental Static Regeneration
 
-	console.log(posts, "posts");
+const Page = async () => {
+	const posts = await fetchPosts();
 
 	return (
 		<div>
-			<Header title="dad.rip" />
+			<Header title="Posts" />
 			<div>
-				{posts?.length > 0 &&
-					posts.map((post) => <PostComponent key={post?._id} post={post} />)}
+				{posts.length > 0 &&
+					posts.map((post) => <PostComponent key={post._id} post={post} />)}
 			</div>
 		</div>
 	);
-}
+};
+
+export default Page;
