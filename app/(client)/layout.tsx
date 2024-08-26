@@ -1,10 +1,13 @@
 import type { Metadata } from "next";
-import { Fira_Code } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "../components/Navbar";
 
-// const inter = Inter({ subsets: ["latin"] });
-const firaCode = Fira_Code({ subsets: ["latin"] });
+const helvetica = localFont({
+	src: "./HelveticaNeueLTStd-Md.woff2",
+	weight: "600",
+	variable: "--font-helvetica",
+});
 
 export const metadata: Metadata = {
 	title: "dad.rip",
@@ -19,9 +22,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${firaCode.className} h-full bg-slate-100 text-slate-950`}>
+				className={`${helvetica.variable} h-full bg-slate-100 text-slate-950`}>
 				<Navbar />
-				<main className="mx-auto px-6">{children}</main>
+				<main className="mx-auto">{children}</main>
 			</body>
 		</html>
 	);
