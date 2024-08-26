@@ -21,7 +21,7 @@ export default function RootLayout({
 			<body
 				className={`${firaCode.className} h-full bg-slate-100 text-slate-950`}>
 				<Navbar />
-				<main className="mx-auto max-w-5xl px-6">{children}</main>
+				<main className="mx-auto px-6">{children}</main>
 			</body>
 		</html>
 	);
