@@ -24,7 +24,7 @@ export const post = {
 			type: "date",
 			initialValue: () => new Date(),
 			options: {
-				dateFormat: "MMMM D, YYYY",
+				dateFormat: "MM D, YYYY",
 			},
 		},
 		{

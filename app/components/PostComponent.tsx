@@ -69,4 +69,5 @@ pointer-events-none
   p-8
   min-h-1/2
   max-w-1/2
+  w-1/2
 `;
