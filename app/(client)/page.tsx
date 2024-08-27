@@ -1,5 +1,4 @@
 import { client } from "@/sanity/lib/client";
-import Header from "../components/Header";
 import { Post } from "../utils/interface";
 import PostComponent from "../components/PostComponent";
 
@@ -26,9 +25,8 @@ export default async function Home() {
 	const posts: Post[] = await getPosts();
 	console.log(posts, "posts");
 	return (
-		<div>
-			<Header title="dad.rip" />
-			<div>
+		<div className="">
+			<div className="">
 				{posts?.length > 0 &&
 					posts?.map((post) => <PostComponent key={post?._id} post={post} />)}
 			</div>

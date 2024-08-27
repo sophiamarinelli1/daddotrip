@@ -1,13 +1,10 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "../components/Navbar";
+import { BIZ_UDMincho, Archivo_Narrow } from "next/font/google";
 
-const helvetica = localFont({
-	src: "./HelveticaNeueLTStd-Md.woff2",
-	weight: "600",
-	variable: "--font-helvetica",
-});
+const mono = BIZ_UDMincho({ weight: "700", subsets: ["latin"] });
+const sans = Archivo_Narrow({ weight: "700", subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "dad.rip",
@@ -22,9 +19,9 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${helvetica.variable} h-full bg-slate-100 text-slate-950`}>
+				className={`${mono.className} ${sans.className} h-full bg-slate-100 text-slate-950`}>
 				<Navbar />
-				<main className="mx-auto">{children}</main>
+				<main className="mx-auto max-w-4xl">{children}</main>
 			</body>
 		</html>
 	);
