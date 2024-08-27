@@ -25,9 +25,8 @@ async function getPosts(): Promise<Post[]> {
 
 export default function Home() {
 	const [posts, setPosts] = useState<Post[]>([]);
-	const [currentPost, setCurrentPost] = useState<Post | null>(null);
+	const [currentPosts, setCurrentPosts] = useState<Post[]>([]);
 
-	// Fetch the posts when the component mounts
 	useEffect(() => {
 		async function fetchPosts() {
 			const fetchedPosts = await getPosts();
@@ -36,20 +35,29 @@ export default function Home() {
 		fetchPosts();
 	}, []);
 
-	// Handle click event to display a random post
 	const handleClick = () => {
 		if (posts.length > 0) {
 			const randomIndex = Math.floor(Math.random() * posts.length);
-			setCurrentPost(posts[randomIndex]);
+			const selectedPost = posts[randomIndex];
+
+			setCurrentPosts((prevPosts) => [...prevPosts, selectedPost]);
+
+			// Remove the post after 30 seconds (when opacity is 0)
+			setTimeout(() => {
+				setCurrentPosts((prevPosts) =>
+					prevPosts.filter((post) => post._id !== selectedPost._id)
+				);
+			}, 30000);
 		}
 	};
 
 	return (
 		<div
 			onClick={handleClick}
-			className="h-[calc(100vh-128px)] flex justify-center items-center">
-			{/* Display the PostComponent if a post has been selected */}
-			{currentPost && <PostComponent post={currentPost} />}
+			className="h-[calc(100vh-128px)] flex justify-center items-center relative">
+			{currentPosts.map((post) => (
+				<PostComponent key={post._id} post={post} />
+			))}
 		</div>
 	);
 }
