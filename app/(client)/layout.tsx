@@ -20,7 +20,6 @@ export default function RootLayout({
 		<html lang="en">
 			<body
 				className={`${mono.className} ${sans.className} h-full bg-slate-100 text-slate-950`}>
-				<div className="fixed pointer-events-none w-screen h-screen animate-pulse backdrop-blur-lg z-50"></div>
 				<Navbar />
 				<main className="mx-auto">{children}</main>
 			</body>

@@ -14,12 +14,12 @@ interface Props {
 const PostComponent = ({ post }: Props) => {
 	return (
 		<div className={cardStyle}>
-			<Link href={`/posts/${post.slug.current}`}>
+			<div>
 				<p className={`uppercase text-8xl ${monoBold.className} `}>
 					{new Date(post?.publishedAt).toDateString()}
 				</p>
 				<p className={`text-8xl ${sans.className}`}>{post?.excerpt}</p>
-			</Link>
+			</div>
 		</div>
 	);
 };
@@ -27,6 +27,7 @@ const PostComponent = ({ post }: Props) => {
 export default PostComponent;
 
 const cardStyle = `
+bg-purple-400
 mx-8
 border-b-2
 border-gray-900
