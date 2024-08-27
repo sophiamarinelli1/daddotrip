@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { Post } from "../utils/interface";
 import { BIZ_UDMincho, Archivo_Narrow } from "next/font/google";
 
@@ -11,26 +11,46 @@ interface Props {
 	post: Post;
 }
 
+const getRandomValue = (min: number, max: number) =>
+	Math.random() * (max - min) + min;
+
 const PostComponent = ({ post }: Props) => {
 	const [opacity, setOpacity] = useState(1);
 
+	// Calculate rotation and position once, before rendering
+	const transformStyle = useMemo(() => {
+		const rotation = getRandomValue(-50, 50);
+		const translateX = getRandomValue(-100, 100);
+		const translateY = getRandomValue(-100, 100);
+		return {
+			transform: `rotate(${rotation}deg) translate(${translateX}px, ${translateY}px)`,
+		};
+	}, []); // Empty dependency array ensures this only runs once
+
 	useEffect(() => {
 		let opacityValue = 1;
+		const fadeDuration = 30000; // 30 seconds
+		const intervalTime = 50; // 50ms for smoother animation
+		const steps = fadeDuration / intervalTime;
+		const opacityDecrement = 1 / steps;
+
 		const fadeInterval = setInterval(() => {
-			opacityValue -= 1 / 30;
+			opacityValue -= opacityDecrement;
 			setOpacity(opacityValue);
 			if (opacityValue <= 0) {
 				clearInterval(fadeInterval);
 			}
-		}, 1000);
+		}, intervalTime);
 
 		return () => clearInterval(fadeInterval);
 	}, []);
 
 	return (
-		<div className={`${cardStyle}`} style={{ opacity, position: "absolute" }}>
+		<div
+			className={`${cardStyle}`}
+			style={{ ...transformStyle, opacity, position: "absolute" }}>
 			<div>
-				<p className={`uppercase text-8xl ${monoBold.className}`}>
+				<p className={`uppercase text-4xl ${monoBold.className}`}>
 					{new Date(post?.publishedAt).toDateString()}
 				</p>
 				<p className={`text-4xl ${sans.className}`}>{post?.excerpt}</p>
@@ -42,8 +62,10 @@ const PostComponent = ({ post }: Props) => {
 export default PostComponent;
 
 const cardStyle = `
-	bg-white
-  mx-8
-  border-b-2
-  border-gray-900
+pointer-events-none
+  bg-white
+  p-8
+  min-h-1/2
+  max-w-1/2
+  border-2
 `;

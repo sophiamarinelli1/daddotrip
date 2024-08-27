@@ -19,9 +19,11 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${mono.className} ${sans.className} h-full bg-slate-100 text-slate-950`}>
-				<Navbar />
-				<main className="mx-auto">{children}</main>
+				className={`${mono.className} ${sans.className} h-screen overflow-hidden bg-white text-slate-950`}>
+				<div className="z-50">
+					<Navbar />
+				</div>
+				<main className="mx-auto ">{children}</main>
 			</body>
 		</html>
 	);

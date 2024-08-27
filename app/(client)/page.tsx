@@ -41,20 +41,13 @@ export default function Home() {
 			const selectedPost = posts[randomIndex];
 
 			setCurrentPosts((prevPosts) => [...prevPosts, selectedPost]);
-
-			// Remove the post after 30 seconds (when opacity is 0)
-			setTimeout(() => {
-				setCurrentPosts((prevPosts) =>
-					prevPosts.filter((post) => post._id !== selectedPost._id)
-				);
-			}, 30000);
 		}
 	};
 
 	return (
 		<div
 			onClick={handleClick}
-			className="h-[calc(100vh-128px)] flex justify-center items-center relative">
+			className="h-[calc(100vh-128px)] flex justify-center items-center relative z-10">
 			{currentPosts.map((post) => (
 				<PostComponent key={post._id} post={post} />
 			))}
