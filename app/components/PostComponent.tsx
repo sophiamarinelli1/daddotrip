@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { Post } from "../utils/interface";
 import { BIZ_UDMincho, Archivo_Narrow } from "next/font/google";
