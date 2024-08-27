@@ -19,7 +19,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`${mono.className} ${sans.className} h-screen overflow-hidden bg-white text-slate-950`}>
+				className={`font-customMed h-screen overflow-hidden bg-white text-slate-950`}>
 				<div className="z-50">
 					<Navbar />
 				</div>

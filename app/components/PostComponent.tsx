@@ -50,10 +50,12 @@ const PostComponent = ({ post }: Props) => {
 			className={`${cardStyle}`}
 			style={{ ...transformStyle, opacity, position: "absolute" }}>
 			<div>
-				<p className={`uppercase text-4xl ${monoBold.className}`}>
+				<p className={`uppercase text-4xl font-customBold text-center`}>
 					{new Date(post?.publishedAt).toDateString()}
 				</p>
-				<p className={`text-4xl ${sans.className}`}>{post?.excerpt}</p>
+				<p className={`text-4xl font-customSerif text-center`}>
+					{post?.excerpt}
+				</p>
 			</div>
 		</div>
 	);
@@ -67,5 +69,4 @@ pointer-events-none
   p-8
   min-h-1/2
   max-w-1/2
-  border-2
 `;

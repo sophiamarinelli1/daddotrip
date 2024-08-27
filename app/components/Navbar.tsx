@@ -31,12 +31,12 @@ const Navbar = () => {
 
 	return (
 		<div
-			className={`${mono.className} relative max-w-full mx-auto p-8 flex flex-col text-6xl justify-between ${
+			className={`relative max-w-full mx-auto p-8 flex flex-col text-6xl justify-between ${
 				isClick ? "bg-black overflow-hidden" : ""
 			}`}>
 			<div className="h-[64px] flex items-center justify-between">
 				<Link
-					className={`${sans.className} text-6xl ${
+					className={`font-customBlack text-6xl ${
 						isClick ? "text-white" : "text-black"
 					}`}
 					href="/">
@@ -71,14 +71,14 @@ const Navbar = () => {
 				<div className="w-full relative h-[calc(100vh-128px)] flex flex-col items-start justify-between">
 					<div className="self-stretch flex flex-col items-start justify-start gap-2">
 						<div
-							className="self-stretch relative text-white cursor-pointer"
+							className="self-stretch relative text-white font-customSerif cursor-pointer"
 							onClick={handleLinkClick}>
 							<Link href="/posts/click-testing-two" className="block">
 								Read all
 							</Link>
 						</div>
 						<div
-							className="self-stretch relative text-white cursor-pointer"
+							className="self-stretch relative text-white font-customSerif cursor-pointer"
 							onClick={handleLinkClick}>
 							<Link href="#" className="block">
 								About the Project

@@ -8,19 +8,19 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			backgroundColor: {
-				"random-color-1": "#ff5733",
-				"random-color-2": "#33ff57",
-				"random-color-3": "#5733ff",
+			fontFamily: {
+				customBlack: ["NeueHaasDisplay-Black"],
+				customBold: ["NeueHaasDisplay-Bold"],
+				customMed: ["NeueHaasDisplay-Mediu"],
+				custom: ["NeueHaasDisplay-Roman"],
+				customLight: ["NeueHaasDisplay-Light"],
+				customSerif: ["ABCSynt-Regular-Trial"],
 			},
-			keyframes: {
-				pulse: {
-					"0%, 100%": { opacity: "1" },
-					"50%": { opacity: "0" },
-				},
-			},
-			animation: {
-				pulse: "pulse 30s ease-out infinite",
+			screens: {
+				sm: "300px",
+				md: "700px",
+				lg: "976px",
+				xl: "1440px",
 			},
 		},
 	},
