@@ -1,9 +1,6 @@
-import { Rule } from "postcss";
-import { title } from "process";
-
-export const post = {
-	name: "post",
-	title: "Post",
+export const about = {
+	name: "about",
+	title: "About",
 	type: "document",
 
 	fields: [
@@ -17,20 +14,6 @@ export const post = {
 			title: "Slug",
 			type: "slug",
 			options: { source: "title" },
-		},
-		{
-			name: "publishedAt",
-			title: "Published At",
-			type: "date",
-			initialValue: () => new Date(),
-			options: {
-				dateFormat: "MM D, YYYY",
-			},
-		},
-		{
-			name: "excerpt",
-			title: "Excerpt",
-			type: "text",
 		},
 		{
 			name: "body",

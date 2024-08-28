@@ -12,12 +12,7 @@ async function getPosts(): Promise<Post[]> {
     slug,
     publishedAt,
     excerpt,
-    _id,
-    tags[]-> {
-      _id,
-      slug,
-      name
-    }
+    _id
   }`;
 	const data = await client.fetch(query);
 	return data;
