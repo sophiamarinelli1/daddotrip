@@ -1,10 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "../components/Navbar";
-import { BIZ_UDMincho, Archivo_Narrow } from "next/font/google";
-
-const mono = BIZ_UDMincho({ weight: "700", subsets: ["latin"] });
-const sans = Archivo_Narrow({ weight: "700", subsets: ["latin"] });
 
 export const metadata: Metadata = {
 	title: "dad.rip",

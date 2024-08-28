@@ -16,6 +16,12 @@ const config: Config = {
 				customLight: ["NeueHaasDisplay-Light"],
 				customSerif: ["ABCSynt-Bold-Trial"],
 			},
+			fontSize: {
+				"2xl": ["20px", "20px"],
+				"4xl": ["40px", "40px"],
+				"6xl": ["64px", "64px"],
+			},
+
 			screens: {
 				sm: "300px",
 				md: "700px",

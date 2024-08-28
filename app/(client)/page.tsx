@@ -42,7 +42,7 @@ export default function Home() {
 	return (
 		<div
 			onClick={handleClick}
-			className="h-[calc(100vh-128px)] flex justify-center items-center relative z-10">
+			className="h-[calc(100vh-128px)] flex justify-center items-center relative">
 			{currentPosts.map((post) => (
 				<PostComponent key={post._id} post={post} />
 			))}

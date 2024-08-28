@@ -2,10 +2,6 @@
 
 import React, { useEffect, useState, useMemo } from "react";
 import { Post } from "../utils/interface";
-import { BIZ_UDMincho, Archivo_Narrow } from "next/font/google";
-
-const monoBold = BIZ_UDMincho({ weight: "700", subsets: ["latin"] });
-const sans = Archivo_Narrow({ weight: "700", subsets: ["latin"] });
 
 interface Props {
 	post: Post;
@@ -17,20 +13,17 @@ const getRandomValue = (min: number, max: number) =>
 const PostComponent = ({ post }: Props) => {
 	const [opacity, setOpacity] = useState(1);
 
-	// Calculate rotation and position once, before rendering
 	const transformStyle = useMemo(() => {
-		const rotation = getRandomValue(-50, 50);
-		const translateX = getRandomValue(-100, 100);
-		const translateY = getRandomValue(-100, 100);
+		const rotation = getRandomValue(-10, 10);
 		return {
-			transform: `rotate(${rotation}deg) translate(${translateX}px, ${translateY}px)`,
+			transform: `rotate(${rotation}deg)`,
 		};
-	}, []); // Empty dependency array ensures this only runs once
+	}, []);
 
 	useEffect(() => {
 		let opacityValue = 1;
-		const fadeDuration = 30000; // 30 seconds
-		const intervalTime = 50; // 50ms for smoother animation
+		const fadeDuration = 30000;
+		const intervalTime = 50;
 		const steps = fadeDuration / intervalTime;
 		const opacityDecrement = 1 / steps;
 
@@ -51,10 +44,11 @@ const PostComponent = ({ post }: Props) => {
 			style={{ ...transformStyle, opacity, position: "absolute" }}>
 			<div>
 				<p
-					className={`uppercase sm:text-2xl lg:text-4xl font-customBold text-center`}>
+					className={`uppercase sm:text-2xl lg:text-4xl font-customBold text-center p-2`}>
 					{new Date(post?.publishedAt).toDateString()}
 				</p>
-				<p className={`sm:text-2xl lg:text-4xl font-customSerif text-center`}>
+				<p
+					className={`sm:text-2xl lg:text-4xl font-customSerif text-justify p-2`}>
 					{post?.excerpt}
 				</p>
 			</div>
@@ -68,9 +62,10 @@ const cardStyle = `
 pointer-events-none
 
   bg-white
-  p-8
+  sm:p-4
+  lg:p-8
   min-h-1/2
   max-w-1/2
   sm:w-5/6
-  lg:w-1/2
+  lg:w-3/4
 `;
