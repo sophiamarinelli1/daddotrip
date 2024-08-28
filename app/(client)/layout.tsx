@@ -19,7 +19,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body
-				className={`font-customMed h-screen overflow-hidden bg-white text-slate-950`}>
+				className={`leading-loose h-screen overflow-hidden bg-white text-slate-950`}>
 				<div className="z-50">
 					<Navbar />
 				</div>

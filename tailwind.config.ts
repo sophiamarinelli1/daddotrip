@@ -14,8 +14,7 @@ const config: Config = {
 				customMed: ["NeueHaasDisplay-Mediu"],
 				custom: ["NeueHaasDisplay-Roman"],
 				customLight: ["NeueHaasDisplay-Light"],
-				customSerif: ["ABCSynt-Regular-Trial"],
-				customSerifAlt: ["happy-times-NG_bold_master"],
+				customSerif: ["ABCSynt-Bold-Trial"],
 			},
 			screens: {
 				sm: "300px",

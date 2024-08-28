@@ -27,12 +27,12 @@ const Navbar = () => {
 
 	return (
 		<div
-			className={`relative max-w-full mx-auto p-8 flex flex-col text-6xl justify-between ${
+			className={`relative max-w-full mx-auto p-8 flex flex-col  justify-between ${
 				isClick ? "bg-black overflow-hidden" : ""
 			}`}>
-			<div className="h-[64px] flex items-center justify-between">
+			<div className="sm:h-[32px] lg:h-[64px] flex items-center justify-between">
 				<Link
-					className={`font-customBlack text-6xl ${
+					className={`font-customBlack sm:text-3xl lg:text-6xl ${
 						isClick ? "text-white" : "text-black"
 					}`}
 					href="/">
@@ -41,8 +41,7 @@ const Navbar = () => {
 				<button className="" onClick={toggleNavbar}>
 					{isClick ? (
 						<svg
-							width="48"
-							height="13"
+							className="sm:w-[24px] sm:h-[6px] lg:w-[48px] lg:h-[13px]"
 							viewBox="0 0 48 13"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg">
@@ -50,9 +49,8 @@ const Navbar = () => {
 						</svg>
 					) : (
 						<svg
-							width="49"
-							height="49"
-							viewBox="0 0 49 49"
+							className="sm:w-[24px] sm:h-[24px] lg:w-[48px] lg:h-[48px]"
+							viewBox="0 0 48 48"
 							fill="none"
 							xmlns="http://www.w3.org/2000/svg">
 							<path
@@ -64,8 +62,8 @@ const Navbar = () => {
 				</button>
 			</div>
 			{isClick && (
-				<div className="w-full relative h-[calc(100vh-128px)] flex flex-col items-start justify-between">
-					<div className="self-stretch flex flex-col items-start justify-start gap-2">
+				<div className="w-full relative sm:h-[calc(100vh-113px)] lg:h-[calc(100vh-128px)] flex flex-col items-start justify-between sm:text-3xl lg:text-6xl">
+					<div className="self-stretch flex flex-col items-start justify-start">
 						<div
 							className="self-stretch relative text-white font-customSerif cursor-pointer"
 							onClick={handleLinkClick}>

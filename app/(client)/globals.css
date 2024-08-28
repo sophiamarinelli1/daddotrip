@@ -28,11 +28,6 @@
 }
 
 @font-face {
-	font-family: "ABCSynt-Regular-Trial";
-	src: url("ABCSynt-Regular-Trial.woff");
-}
-
-@font-face {
-	font-family: "Happy-Times-At-The-IKOB";
-	src: url("happy-times-NG_bold_master.woff2");
+	font-family: "ABCSynt-Bold-Trial";
+	src: url("ABCSynt-Bold-Trial.woff2");
 }
