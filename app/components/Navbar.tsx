@@ -20,7 +20,7 @@ const Navbar = () => {
 		} else {
 		}
 		return () => {
-			document.body.style.overflow = "hidden";
+			document.body.style.overflow = "auto";
 		};
 	}, [isClick]);
 
@@ -56,14 +56,14 @@ const Navbar = () => {
 							<div
 								className="self-stretch relative text-white font-customSerif cursor-pointer"
 								onClick={handleLinkClick}>
-								<Link href="/posts/click-testing-two" className="block">
+								<Link href="/entries" className="block">
 									Read all
 								</Link>
 							</div>
 							<div
 								className="self-stretch relative text-white font-customSerif cursor-pointer"
 								onClick={handleLinkClick}>
-								<Link href="#" className="block">
+								<Link href="/about" className="block">
 									About the Project
 								</Link>
 							</div>

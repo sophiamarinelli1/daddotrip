@@ -14,8 +14,7 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="en">
-			<body
-				className={`leading-loose h-screen overflow-hidden bg-white text-slate-950`}>
+			<body className={`h-screen bg-white`}>
 				<div className="z-50">
 					<Navbar />
 				</div>

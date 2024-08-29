@@ -6,3 +6,10 @@ export interface Post {
 	body: any;
 	_id: string;
 }
+
+export interface About {
+	title: string;
+	slug: { current: string };
+	body: any;
+	_id: string;
+}
