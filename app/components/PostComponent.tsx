@@ -13,6 +13,19 @@ const getRandomValue = (min: number, max: number) =>
 const PostComponent = ({ post }: Props) => {
 	const [opacity, setOpacity] = useState(1);
 
+	// Apply style based on the styleType field
+	const getStyleClass = (styleType: string | undefined) => {
+		switch (styleType) {
+			case "blackWhite":
+				return "bg-black text-white";
+			case "grayWhite":
+				return "bg-gray-500 text-white";
+			case "whiteBlack":
+			default:
+				return "bg-white text-black";
+		}
+	};
+
 	const transformStyle = useMemo(() => {
 		const rotation = getRandomValue(-10, 10);
 		return {
@@ -38,17 +51,17 @@ const PostComponent = ({ post }: Props) => {
 		return () => clearInterval(fadeInterval);
 	}, []);
 
+	const styleClass = getStyleClass(post?.styleType);
+
 	return (
-		<div
-			className={`${cardStyle}`}
-			style={{ ...transformStyle, opacity, position: "absolute" }}>
-			<div>
-				<p
-					className={`uppercase sm:text-2xl lg:text-4xl font-customBold text-center p-2`}>
+		<div className={`${cardStyle} ${styleClass}`} style={{ opacity }}>
+			<div
+				style={{ ...transformStyle, opacity }}
+				className="sm:w-[90vw] lg:w-1/2">
+				<p className="uppercase sm:text-3xl lg:text-4xl font-customBold text-center p-2">
 					{new Date(post?.publishedAt).toDateString()}
 				</p>
-				<p
-					className={`sm:text-2xl lg:text-4xl font-customSerif text-justify p-2`}>
+				<p className="sm:text-3xl lg:text-4xl font-customSerif text-justify p-2">
 					{post?.excerpt}
 				</p>
 			</div>
@@ -59,13 +72,11 @@ const PostComponent = ({ post }: Props) => {
 export default PostComponent;
 
 const cardStyle = `
-pointer-events-none
-
-  bg-white
-  sm:p-4
-  lg:p-8
-  min-h-1/2
-  max-w-1/2
-  sm:w-5/6
-  lg:w-3/4
+backdrop-blur-3xl
+  fixed inset-0
+  flex flex-col items-center justify-center
+  pointer-events-none
+  transition-opacity duration-1000 ease-out
+  z-10
+  p-6
 `;

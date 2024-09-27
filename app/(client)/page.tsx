@@ -12,6 +12,7 @@ async function getPosts(): Promise<Post[]> {
     slug,
     publishedAt,
     excerpt,
+	styleType,
     _id
   }`;
 	const data = await client.fetch(query);
@@ -40,9 +41,7 @@ export default function Home() {
 	};
 
 	return (
-		<div
-			onClick={handleClick}
-			className="h-[calc(100vh-128px)] flex justify-center items-center relative">
+		<div onClick={handleClick} className="h-screen w-screen relative">
 			{currentPosts.map((post) => (
 				<PostComponent key={post._id} post={post} />
 			))}

@@ -5,6 +5,7 @@ export interface Post {
 	excerpt: string;
 	body: any;
 	_id: string;
+	styleType: string;
 }
 
 export interface About {

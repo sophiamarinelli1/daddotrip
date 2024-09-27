@@ -7,6 +7,14 @@ const config: Config = {
 		"./app/**/*.{js,ts,jsx,tsx,mdx}",
 	],
 	theme: {
+		colors: {
+			white: "#ffffff",
+			cream: "#F3F7F3",
+			black: "#121212",
+			gray: "#BEBEBE",
+			ash: "#8C8C8C",
+			pink: "#FF80FA",
+		},
 		extend: {
 			fontFamily: {
 				customBlack: ["NeueHaasDisplay-Black"],
@@ -18,6 +26,7 @@ const config: Config = {
 			},
 			fontSize: {
 				"2xl": ["20px", "20px"],
+				"3xl": ["28px", "28px"],
 				"4xl": ["40px", "40px"],
 				"6xl": ["64px", "64px"],
 			},

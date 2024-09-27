@@ -25,8 +25,8 @@ export default async function Home() {
 	const posts: Post[] = await getPosts();
 	console.log(posts, "posts");
 	return (
-		<div>
-			<div className="h-screen mt-[32px] p-8 flex-col ">
+		<div className="">
+			<div className=" mt-[32px] mb-8 p-8  flex flex-col gap-8 ">
 				{posts?.length > 0 &&
 					posts?.map((post) => (
 						<ReadAllComponent key={post?._id} post={post} />

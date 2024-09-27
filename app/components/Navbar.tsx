@@ -25,7 +25,7 @@ const Navbar = () => {
 	}, [isClick]);
 
 	return (
-		<nav className="fixed top-0 left-0 w-full z-50">
+		<nav className="fixed top-0 left-0 w-full z-[1000] mix-blend-difference">
 			<div
 				className={`relative max-w-full mx-auto p-8 flex flex-col  justify-between items-start gap-2 ${
 					isClick ? "bg-black overflow-hidden" : ""

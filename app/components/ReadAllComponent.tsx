@@ -20,7 +20,5 @@ const ReadAllComponent = ({ post }: Props) => {
 export default ReadAllComponent;
 
 const cardStyle = `
-mb-8
-w-1/2
-ml-auto
+ml-auto sm:w-100% lg:w-1/2
 `;

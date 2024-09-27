@@ -44,5 +44,18 @@ export const post = {
 				},
 			],
 		},
+		{
+			name: "styleType",
+			title: "Style Type",
+			type: "string",
+			options: {
+				list: [
+					{ title: "Black Background / White Text", value: "blackWhite" },
+					{ title: "Gray Background / White Text", value: "grayWhite" },
+					{ title: "White Background / Black Text", value: "whiteBlack" },
+				],
+				layout: "dropdown",
+			},
+		},
 	],
 };

@@ -15,9 +15,7 @@ export default function RootLayout({
 	return (
 		<html lang="en">
 			<body className={`h-screen bg-white`}>
-				<div className="z-50">
-					<Navbar />
-				</div>
+				<Navbar />
 				<main className="mx-auto ">{children}</main>
 			</body>
 		</html>
