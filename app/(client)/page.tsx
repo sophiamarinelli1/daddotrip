@@ -2,17 +2,29 @@
 
 import { useState, useEffect } from "react";
 import { client } from "@/sanity/lib/client";
-import { Post } from "../utils/interface";
+import { Intro, Post } from "../utils/interface";
 import PostComponent from "../components/PostComponent";
+import IntroComponent from "../components/IntroComponent";
 
-// Function to fetch posts from Sanity
+// Fetch posts from Sanity
 async function getPosts(): Promise<Post[]> {
 	const query = `*[_type == "post"] {
     title,
     slug,
     publishedAt,
     excerpt,
-	styleType,
+    styleType,
+    _id
+  }`;
+	const data = await client.fetch(query);
+	return data;
+}
+
+// Fetch the single intro entry from Sanity
+async function getIntro(): Promise<Intro> {
+	const query = `*[_type == "intro"][0] {
+    title,
+    body,
     _id
   }`;
 	const data = await client.fetch(query);
@@ -21,30 +33,39 @@ async function getPosts(): Promise<Post[]> {
 
 export default function Home() {
 	const [posts, setPosts] = useState<Post[]>([]);
-	const [currentPosts, setCurrentPosts] = useState<Post[]>([]);
+	const [currentPost, setCurrentPost] = useState<Post | null>(null); // Store a single post at a time
+	const [intro, setIntro] = useState<Intro | null>(null); // Store the intro data
 
+	// Fetch posts and intro when the component mounts
 	useEffect(() => {
-		async function fetchPosts() {
+		async function fetchData() {
 			const fetchedPosts = await getPosts();
+			const fetchedIntro = await getIntro();
 			setPosts(fetchedPosts);
+			setIntro(fetchedIntro);
 		}
-		fetchPosts();
+		fetchData();
 	}, []);
 
+	// Handle click to display a random post
 	const handleClick = () => {
 		if (posts.length > 0) {
 			const randomIndex = Math.floor(Math.random() * posts.length);
 			const selectedPost = posts[randomIndex];
-
-			setCurrentPosts((prevPosts) => [...prevPosts, selectedPost]);
+			setCurrentPost(selectedPost); // Set the post to be displayed
 		}
 	};
 
 	return (
-		<div onClick={handleClick} className="h-screen w-screen relative">
-			{currentPosts.map((post) => (
-				<PostComponent key={post._id} post={post} />
-			))}
+		<div className="h-screen w-screen relative">
+			{intro && <IntroComponent key={intro._id} intro={intro} />}
+			<div
+				onClick={handleClick}
+				className="cursor-pointer h-full w-full absolute top-0 left-0">
+				{currentPost && (
+					<PostComponent key={currentPost._id} post={currentPost} />
+				)}
+			</div>
 		</div>
 	);
 }

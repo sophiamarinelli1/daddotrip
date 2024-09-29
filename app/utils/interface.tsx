@@ -14,3 +14,9 @@ export interface About {
 	body: any;
 	_id: string;
 }
+
+export interface Intro {
+	title: string;
+	body: any;
+	_id: string;
+}

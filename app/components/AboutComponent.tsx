@@ -10,11 +10,11 @@ interface Props {
 
 const AboutComponent = ({ about }: Props) => {
 	return (
-		<div className="h-screen sm:mt-[128px] lg:mt-[32px] p-8 sm:text-2xl lg:text-4xl font-customSerif text-justify flex flex-col">
-			<div className="ml-auto sm:w-100% lg:w-1/2 flex-col gap-12">
-				<div className="sm:text-4xl lg:text-6xl font-customBlack">
+		<div className="h-screen sm:mt-[128px] lg:mt-[32px] p-8 sm:text-3xl lg:text-4xl font-customSerif text-justify flex flex-col">
+			<div className="ml-auto sm:w-100% lg:w-1/2 flex flex-col gap-4">
+				<h1 className="sm:text-3xl lg:text-4xl font-customBlack mb-8">
 					{about.title}
-				</div>
+				</h1>
 				<PortableText
 					value={about.body}
 					components={myPortableTextComponents}

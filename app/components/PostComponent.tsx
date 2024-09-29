@@ -35,7 +35,7 @@ const PostComponent = ({ post }: Props) => {
 
 	useEffect(() => {
 		let opacityValue = 1;
-		const fadeDuration = 30000;
+		const fadeDuration = 25000;
 		const intervalTime = 50;
 		const steps = fadeDuration / intervalTime;
 		const opacityDecrement = 1 / steps;

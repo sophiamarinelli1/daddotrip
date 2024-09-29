@@ -26,7 +26,7 @@ export default async function Home() {
 	console.log(posts, "posts");
 	return (
 		<div className="">
-			<div className=" mt-[32px] mb-8 p-8  flex flex-col gap-8 ">
+			<div className="grid grid-cols-1 ml-auto sm:w-full lg:w-1/2 gap-8 p-8 sm:mt-[128px] lg:mt-[32px]">
 				{posts?.length > 0 &&
 					posts?.map((post) => (
 						<ReadAllComponent key={post?._id} post={post} />

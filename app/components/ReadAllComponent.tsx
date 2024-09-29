@@ -1,4 +1,3 @@
-import Link from "next/link";
 import React from "react";
 import { Post } from "../utils/interface";
 
@@ -9,10 +8,12 @@ interface Props {
 const ReadAllComponent = ({ post }: Props) => {
 	return (
 		<div className={cardStyle}>
-			<p className="uppercase text-4xl font-customBlack">
+			<p className="uppercase sm:text-3xl lg:text-4xl  font-customBlack">
 				{new Date(post?.publishedAt).toDateString()}
 			</p>
-			<p className="text-4xl font-customSerif">{post?.excerpt}</p>
+			<p className="sm:text-3xl lg:text-4xl text-justify font-customSerif">
+				{post?.excerpt}
+			</p>
 		</div>
 	);
 };
@@ -20,5 +21,4 @@ const ReadAllComponent = ({ post }: Props) => {
 export default ReadAllComponent;
 
 const cardStyle = `
-ml-auto sm:w-100% lg:w-1/2
 `;

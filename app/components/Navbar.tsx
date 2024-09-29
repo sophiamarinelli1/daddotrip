@@ -18,24 +18,24 @@ const Navbar = () => {
 		if (isClick) {
 			document.body.style.overflow = "hidden";
 		} else {
-		}
-		return () => {
 			document.body.style.overflow = "auto";
-		};
+		}
 	}, [isClick]);
 
 	return (
 		<nav className="fixed top-0 left-0 w-full z-[1000] mix-blend-difference">
 			<div
-				className={`relative max-w-full mx-auto p-8 flex flex-col  justify-between items-start gap-2 ${
+				className={`relative max-w-full mx-auto p-8 flex flex-col justify-between items-start gap-2 ${
 					isClick ? "bg-black overflow-hidden" : ""
 				}`}>
 				<div className="sm:h-[64px] lg:h-[64px] flex items-center items-start gap-2">
+					{/* Update: Add onClick event to close navbar */}
 					<Link
 						className={`font-customSerif sm:text-6xl lg:text-6xl ${
 							isClick ? "text-white" : "text-black"
 						}`}
-						href="/">
+						href="/"
+						onClick={handleLinkClick}>
 						dad.rip
 					</Link>
 					<button className="" onClick={toggleNavbar}>
